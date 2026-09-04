@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0E0F11;
+    --surface: #1A1C1F;
+    --text: #F2F1ED;
+    --text-muted: #8B8D92;
+    --accent: #D6FF3F;
+    --warning: #FF6B4A;
+    --success: #4ADE80;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0E0F11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2E3238;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B8D92;
+  }
+}
+
+/* Tabular numbers for clean alignment */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Micro-animations */
+@keyframes checkmarkScale {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-checkmark {
+  animation: checkmarkScale 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Exercise CSS Keyframe Movement Animations */
+
+/* 1. Squat Animation */
+@keyframes squatMotion {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(22px); }
+}
+
+@keyframes squatBarbell {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(22px); }
+}
+
+.anim-squat-body {
+  animation: squatMotion 2.4s ease-in-out infinite;
+}
+
+/* 2. Pushup Animation */
+@keyframes pushupMotion {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(18px) rotate(-3deg); }
+}
+
+.anim-pushup-body {
+  animation: pushupMotion 2s ease-in-out infinite;
+}
+
+/* 3. Deadlift Animation */
+@keyframes deadliftTorso {
+  0%, 100% { transform: rotate(0deg); transform-origin: 40px 65px; }
+  50% { transform: rotate(40deg); transform-origin: 40px 65px; }
+}
+
+.anim-deadlift-torso {
+  animation: deadliftTorso 2.6s ease-in-out infinite;
+}
+
+/* 4. Bicep Curl Animation */
+@keyframes bicepArm {
+  0%, 100% { transform: rotate(0deg); transform-origin: 35px 35px; }
+  50% { transform: rotate(-85deg); transform-origin: 35px 35px; }
+}
+
+.anim-bicep-arm {
+  animation: bicepArm 1.8s ease-in-out infinite;
+}
+
+/* 5. Jumping Jacks Animation */
+@keyframes jackLimb {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.4); }
+}
+
+.anim-jack {
+  animation: jackLimb 1.2s ease-in-out infinite;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .anim-squat-body,
+  .anim-pushup-body,
+  .anim-deadlift-torso,
+  .anim-bicep-arm,
+  .anim-jack {
+    animation: none !important;
+  }
+}
