@@ -49,7 +49,12 @@ async function connectDB() {
             isSeeded = true;
         }
     } catch (err) {
-        console.error('MongoDB connection error:', err.message);
+        if (err.message.includes('ENOTFOUND')) {
+            console.error('MongoDB URI Invalid Hostname Error:', err.message);
+            console.error('HINT: Your MONGO_URI in Vercel Environment Variables has an invalid cluster domain (e.g. "bang1234"). Make sure to copy the full connection string from MongoDB Atlas, e.g.: mongodb+srv://user:pass@cluster0.abcde.mongodb.net/fitplan?retryWrites=true&w=majority');
+        } else {
+            console.error('MongoDB connection error:', err.message);
+        }
         throw err;
     }
 }
