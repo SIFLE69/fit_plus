@@ -21,11 +21,9 @@ export default function Navbar({ activeTab, setActiveTab, profile, onResetSessio
                     className="flex items-center gap-2 cursor-pointer shrink-0"
                     onClick={() => setActiveTab('dashboard')}
                 >
-                    <div className="w-6 h-6 rounded bg-accent flex items-center justify-center">
-                        <Terminal className="w-3.5 h-3.5 text-white" strokeWidth={2} />
-                    </div>
-                    <span className="font-semibold text-sm text-text-main tracking-tight">
-                        FitCode
+                    <img src="/logo.png" alt="FitPlus Logo" className="w-6 h-6 object-contain" />
+                    <span className="font-bold text-base text-text-main tracking-tight">
+                        Fit<span className="text-accent">Plus</span>
                     </span>
                 </div>
 

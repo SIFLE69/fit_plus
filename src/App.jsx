@@ -160,8 +160,9 @@ export default function App() {
     if (loading) {
         return (
             <div className="min-h-screen bg-bg flex flex-col items-center justify-center">
+                <img src="/logo.png" alt="FitPlus Logo" className="w-10 h-10 object-contain mb-3 animate-pulse" />
                 <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin mb-3" />
-                <p className="text-xs text-text-muted">Loading your data...</p>
+                <p className="text-xs text-text-muted font-medium">Loading FitPlus...</p>
             </div>
         );
     }

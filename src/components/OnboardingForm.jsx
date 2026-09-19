@@ -221,10 +221,8 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
             {isLoginMode ? (
                 <div className="w-full max-w-md bg-surface border border-surface-border rounded-xl p-6 sm:p-8 shadow-card relative overflow-hidden">
                     <div className="mb-6 text-center">
-                        <div className="w-10 h-10 bg-accent/15 border border-accent/30 rounded-lg flex items-center justify-center mx-auto mb-3 text-accent font-mono font-bold">
-                            <Terminal className="w-5 h-5 text-accent" />
-                        </div>
-                        <h2 className="text-xl font-bold text-text-main">Sign In to FitCode</h2>
+                        <img src="/logo.png" alt="FitPlus Logo" className="w-12 h-12 object-contain mx-auto mb-3" />
+                        <h2 className="text-xl font-bold text-text-main">Sign In to Fit<span className="text-accent">Plus</span></h2>
                         <p className="text-xs text-text-muted mt-1">Access your account profile & personalized fitness data</p>
                     </div>
 
@@ -322,12 +320,10 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
                 <div className="w-full max-w-xl bg-surface border border-surface-border rounded-xl p-6 sm:p-8 shadow-card relative overflow-hidden">
                     {/* Mode Switch Header */}
                     <div className="flex items-center justify-between pb-4 mb-6 border-b border-surface-border">
-                        <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent font-mono font-bold text-sm">
-                                <Terminal className="w-4 h-4 text-accent" />
-                            </div>
+                        <div className="flex items-center gap-2.5">
+                            <img src="/logo.png" alt="FitPlus Logo" className="w-7 h-7 object-contain" />
                             <div>
-                                <h1 className="text-base font-bold text-text-main">Athlete Setup</h1>
+                                <h1 className="text-base font-bold text-text-main">Athlete Setup — Fit<span className="text-accent">Plus</span></h1>
                                 <p className="text-xs text-text-muted">Create profile & initialize AI engines</p>
                             </div>
                         </div>
