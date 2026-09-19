@@ -10,6 +10,26 @@ const DietPlanSchema = new mongoose.Schema({
         carbsG: { type: Number, required: true },
         fatG: { type: Number, required: true }
     },
+    diseaseGuidance: [{
+        condition: String,
+        advice: String,
+    }],
+    allergyPrecautions: [{ type: String }],
+    meals: [{
+        id: String,
+        name: String,
+        time: String,
+        calories: Number,
+        proteinG: Number,
+        carbsG: Number,
+        fatG: Number,
+        title: String,
+        ingredients: [{ type: String }],
+    }],
+    groceryList: [{
+        category: String,
+        items: [{ type: String }],
+    }],
     generatedAt: { type: Date, default: Date.now }
 });
 

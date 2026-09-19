@@ -1,12 +1,12 @@
 import React from 'react';
-import { Flame, Activity, Zap, RefreshCw } from 'lucide-react';
+import { Flame, RefreshCw, HeartPulse, AlertTriangle } from 'lucide-react';
+import Card from './ui/Card';
 
 export default function DietPlanCard({ dietPlan, profile, onRecalculate }) {
     if (!dietPlan) return null;
 
-    const { bmr, tdee, macros } = dietPlan;
+    const { bmr, tdee, macros, diseaseGuidance = [], allergyPrecautions = [] } = dietPlan;
 
-    // Calculate percentages
     const totalCal = macros.calories;
     const pCal = macros.proteinG * 4;
     const cCal = macros.carbsG * 4;
@@ -17,12 +17,12 @@ export default function DietPlanCard({ dietPlan, profile, onRecalculate }) {
     const fPct = Math.round((fCal / totalCal) * 100);
 
     return (
-        <div className="bg-surface border border-surface-border rounded-xl p-6 shadow-xl relative">
+        <Card className="space-y-4 border-surface-border">
             {/* Header */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between border-b border-surface-border pb-3">
                 <div className="flex items-center gap-2">
-                    <Flame className="w-5 h-5 text-accent" />
-                    <h3 className="font-display font-bold text-lg text-text-main">Daily Nutrition Protocol</h3>
+                    <Flame className="w-4 h-4 text-accent" />
+                    <h3 className="font-semibold text-xs text-text-main">Nutrition Summary & Macros</h3>
                 </div>
                 <button
                     onClick={onRecalculate}
@@ -34,52 +34,85 @@ export default function DietPlanCard({ dietPlan, profile, onRecalculate }) {
             </div>
 
             {/* Hero Calorie Target */}
-            <div className="bg-bg border border-surface-border rounded-lg p-5 mb-6 text-center">
-                <div className="text-xs text-text-muted font-display uppercase tracking-wider mb-1">
-                    Daily Caloric Target ({profile?.goal?.toUpperCase() || 'CUT'} PHASE)
+            <div className="bg-bg/80 border border-surface-border rounded-lg p-4 text-center">
+                <div className="text-[10px] text-text-muted font-semibold uppercase tracking-wider mb-1">
+                    TARGET CALORIE INTAKE ({profile?.goal?.toUpperCase() || 'CUT'} PHASE)
                 </div>
-                <div className="flex items-baseline justify-center gap-2">
-                    <span className="font-display font-extrabold text-4xl sm:text-5xl text-accent num-tabular">
+                <div className="flex items-baseline justify-center gap-1.5">
+                    <span className="font-mono font-bold text-3xl text-accent num-tabular">
                         {macros.calories.toLocaleString()}
                     </span>
-                    <span className="text-sm font-semibold text-text-muted uppercase">kcal / day</span>
+                    <span className="text-xs font-semibold text-text-muted uppercase">kcal / day</span>
                 </div>
-                <div className="flex items-center justify-center gap-4 text-xs text-text-muted mt-3 pt-3 border-t border-surface-border/50">
-                    <span>BMR: <strong className="text-text-main font-display">{bmr}</strong> kcal</span>
+                <div className="flex items-center justify-center gap-4 text-xs text-text-muted mt-2 pt-2 border-t border-surface-border">
+                    <span>BMR: <strong className="text-text-main font-mono">{bmr}</strong> kcal</span>
                     <span className="text-surface-border">•</span>
-                    <span>TDEE: <strong className="text-text-main font-display">{tdee}</strong> kcal</span>
+                    <span>TDEE: <strong className="text-text-main font-mono">{tdee}</strong> kcal</span>
                 </div>
+            </div>
+
+            {/* Stacked macro progress bar with 3 always-distinct colors */}
+            <div className="h-3 w-full bg-bg rounded-full overflow-hidden flex border border-surface-border">
+                <div style={{ width: `${pPct}%` }} className="bg-[#3B82F6] h-full transition-all" title={`Protein ${pPct}%`} />
+                <div style={{ width: `${cPct}%` }} className="bg-[#10B981] h-full transition-all" title={`Carbs ${cPct}%`} />
+                <div style={{ width: `${fPct}%` }} className="bg-[#F59E0B] h-full transition-all" title={`Fats ${fPct}%`} />
             </div>
 
             {/* Three Compact Macro Stat Blocks */}
             <div className="grid grid-cols-3 gap-3">
-                {/* Protein */}
-                <div className="bg-surface-hover/80 border border-surface-border rounded-lg p-3.5 text-center">
-                    <span className="block text-[11px] text-text-muted font-display uppercase font-semibold">PROTEIN</span>
-                    <span className="block font-display font-bold text-2xl text-text-main my-0.5 num-tabular">
+                <div className="bg-bg/80 border border-surface-border rounded-lg p-3 text-center">
+                    <span className="block text-[10px] text-text-muted uppercase font-semibold">PROTEIN</span>
+                    <span className="block font-mono font-bold text-lg text-[#3B82F6] my-0.5 num-tabular">
                         {macros.proteinG}g
                     </span>
-                    <span className="block text-[11px] text-accent font-semibold">{pPct}% of calories</span>
+                    <span className="block text-[10px] text-text-muted font-mono">{pPct}%</span>
                 </div>
 
-                {/* Carbs */}
-                <div className="bg-surface-hover/80 border border-surface-border rounded-lg p-3.5 text-center">
-                    <span className="block text-[11px] text-text-muted font-display uppercase font-semibold">CARBS</span>
-                    <span className="block font-display font-bold text-2xl text-text-main my-0.5 num-tabular">
+                <div className="bg-bg/80 border border-surface-border rounded-lg p-3 text-center">
+                    <span className="block text-[10px] text-text-muted uppercase font-semibold">CARBS</span>
+                    <span className="block font-mono font-bold text-lg text-[#10B981] my-0.5 num-tabular">
                         {macros.carbsG}g
                     </span>
-                    <span className="block text-[11px] text-text-muted font-semibold">{cPct}% of calories</span>
+                    <span className="block text-[10px] text-text-muted font-mono">{cPct}%</span>
                 </div>
 
-                {/* Fat */}
-                <div className="bg-surface-hover/80 border border-surface-border rounded-lg p-3.5 text-center">
-                    <span className="block text-[11px] text-text-muted font-display uppercase font-semibold">FATS</span>
-                    <span className="block font-display font-bold text-2xl text-text-main my-0.5 num-tabular">
+                <div className="bg-bg/80 border border-surface-border rounded-lg p-3 text-center">
+                    <span className="block text-[10px] text-text-muted uppercase font-semibold">FATS</span>
+                    <span className="block font-mono font-bold text-lg text-[#F59E0B] my-0.5 num-tabular">
                         {macros.fatG}g
                     </span>
-                    <span className="block text-[11px] text-text-muted font-semibold">{fPct}% of calories</span>
+                    <span className="block text-[10px] text-text-muted font-mono">{fPct}%</span>
                 </div>
             </div>
-        </div>
+
+            {/* Medical Disease Specific Protocols */}
+            {diseaseGuidance.length > 0 && (
+                <div className="bg-bg/80 border border-surface-border rounded-lg p-3.5 space-y-1.5">
+                    <div className="text-xs font-semibold text-accent uppercase flex items-center gap-1.5">
+                        <HeartPulse className="w-3.5 h-3.5 text-accent" /> Clinical Protocol Guidance
+                    </div>
+                    {diseaseGuidance.map((g, idx) => (
+                        <div key={idx} className="text-xs text-text-muted">
+                            <strong className="text-text-main font-semibold uppercase">{g.condition}:</strong> {g.advice}
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* Food Allergy Warnings */}
+            {allergyPrecautions.length > 0 && (
+                <div className="bg-warning/10 border border-warning/30 rounded-lg p-3.5 space-y-1 text-xs text-warning">
+                    <div className="font-semibold uppercase flex items-center gap-1.5 mb-1">
+                        <AlertTriangle className="w-3.5 h-3.5 text-warning" /> Allergy Precautions
+                    </div>
+                    {allergyPrecautions.map((p, idx) => (
+                        <div key={idx} className="flex items-start gap-1">
+                            <span>•</span>
+                            <span>{p}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </Card>
     );
 }

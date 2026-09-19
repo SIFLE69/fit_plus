@@ -8,7 +8,7 @@ export const initialExercises = [
         benefit: 'Maximizes pectoralis major hypertrophy and pressing power across upper torso.',
         warning: 'Do not bounce the bar off chest. Keep shoulders retracted to prevent rotator cuff strain.',
         youtubeId: 'rT7DgCr-3pg',
-        animationType: 'pushup'
+        gifUrl: '3TZduzM.gif'
     },
     {
         name: 'Incline Dumbbell Press',
@@ -18,7 +18,17 @@ export const initialExercises = [
         benefit: 'Targets clavicular head of chest for upper pec density.',
         warning: 'Maintain 30-degree incline. Avoid flaring elbows past 90 degrees to lower shoulder joint stress.',
         youtubeId: '8iPEnn-ltC8',
-        animationType: 'pushup'
+        gifUrl: '8eqjhOl.gif'
+    },
+    {
+        name: 'Seated Chest Press Machine',
+        category: 'strength',
+        muscleGroup: 'chest',
+        equipment: 'machine',
+        benefit: 'Provides high-stability guided chest loading with minimal shoulder joint stress.',
+        warning: 'Adjust seat height so handles align with mid-chest.',
+        youtubeId: 'sqOw2Y6uDWQ',
+        gifUrl: '5v7KYld.gif'
     },
     {
         name: 'Bodyweight Push-Up',
@@ -28,7 +38,7 @@ export const initialExercises = [
         benefit: 'Builds core stability, chest strength, and scapular endurance.',
         warning: 'Keep hips aligned with spine; do not allow lower back to sag.',
         youtubeId: 'IODxDxX7oi4',
-        animationType: 'pushup'
+        gifUrl: '05Cf2v8.gif'
     },
     {
         name: 'Cable Chest Fly',
@@ -38,7 +48,7 @@ export const initialExercises = [
         benefit: 'Maintains continuous tension through deep chest stretch and peak adduction contraction.',
         warning: 'Maintain slight elbow bend; do not over-stretch shoulder at back of movement.',
         youtubeId: 'Iwe6AmxVf7o',
-        animationType: 'generic'
+        gifUrl: '7saC5zz.gif'
     },
 
     // SHOULDERS
@@ -50,17 +60,27 @@ export const initialExercises = [
         benefit: 'Develops anterior and lateral deltoids while engaging core stability.',
         warning: 'Do not arch lower back excessively. Keep glutes squeezed tight throughout press.',
         youtubeId: '2yjwXTZQDDI',
-        animationType: 'generic'
+        gifUrl: '6cKQC5E.gif'
     },
     {
-        name: 'Dumbbell Lateral Raise',
+        name: 'Seated Dumbbell Shoulder Press',
         category: 'strength',
         muscleGroup: 'shoulders',
         equipment: 'dumbbell',
-        benefit: 'Isolates lateral deltoid head for shoulder width.',
-        warning: 'Lead with elbows, not wrists. Avoid swinging momentum at heavier weights.',
+        benefit: 'Isolates shoulder deltoids with lower back support from bench.',
+        warning: 'Do not arch lumbar spine away from bench support.',
+        youtubeId: 'qEwKCR5JCog',
+        gifUrl: '3eGE2JC.gif'
+    },
+    {
+        name: 'Dumbbell Front Raise',
+        category: 'strength',
+        muscleGroup: 'shoulders',
+        equipment: 'dumbbell',
+        benefit: 'Isolates anterior deltoids for sculpted shoulder caps.',
+        warning: 'Control the descent phase; avoid swinging hips.',
         youtubeId: '3VcKaXpzqRo',
-        animationType: 'generic'
+        gifUrl: '3eGE2JC.gif'
     },
 
     // BACK & PULL
@@ -72,27 +92,27 @@ export const initialExercises = [
         benefit: 'Full posterior chain builder for lat, hamstrings, and lower back strength.',
         warning: 'Keep neutral lumbar spine throughout. Stop immediately if lower back rounds.',
         youtubeId: 'op9kVnSso6Q',
-        animationType: 'deadlift'
+        gifUrl: '8urJS9b.gif'
     },
     {
-        name: 'Lat Pulldown',
+        name: 'Lat Pulldown Machine',
         category: 'strength',
         muscleGroup: 'back',
         equipment: 'machine',
         benefit: 'Builds latissimus dorsi width and upper back thickness.',
         warning: 'Pull bar to top of chest, never behind neck to prevent cervical spine compression.',
         youtubeId: 'CAwf7n6Luuc',
-        animationType: 'generic'
+        gifUrl: '7F1DVzn.gif'
     },
     {
-        name: 'Bent-Over Dumbbell Row',
+        name: 'Seated Cable Row',
         category: 'strength',
         muscleGroup: 'back',
-        equipment: 'dumbbell',
-        benefit: 'Enhances mid-back density, rhomboids, and rear delts.',
-        warning: 'Brace core firm; do not twist torso at top of motion.',
-        youtubeId: 'roCP6wCXPqo',
-        animationType: 'generic'
+        equipment: 'machine',
+        benefit: 'Provides excellent lumbar-supported lat and rhomboid mid-back strengthening.',
+        warning: 'Keep chest high and refrain from excessive torso rocking.',
+        youtubeId: 'GZbfZ033fBo',
+        gifUrl: '7I6LNUG.gif'
     },
 
     // LEGS
@@ -104,37 +124,27 @@ export const initialExercises = [
         benefit: 'Premier compound exercise for quadriceps, glutes, and leg strength.',
         warning: 'Keep knees tracking over toes. Avoid knee valgus collapse under heavy loads.',
         youtubeId: 'ultWZbUMPL8',
-        animationType: 'squat'
+        gifUrl: '5bpPTHv.gif'
     },
     {
-        name: 'Romanian Deadlift (RDL)',
-        category: 'strength',
-        muscleGroup: 'legs',
-        equipment: 'dumbbell',
-        benefit: 'Isolates hamstrings and glutes through eccentric stretch.',
-        warning: 'Hinge strictly at hips; do not flex or curve lower back.',
-        youtubeId: 'JCXUYuzwNrM',
-        animationType: 'deadlift'
-    },
-    {
-        name: 'Bulgarian Split Squat',
-        category: 'strength',
-        muscleGroup: 'legs',
-        equipment: 'dumbbell',
-        benefit: 'Corrects unilateral leg imbalances and strengthens hip stabilizers.',
-        warning: 'High knee-strain potential — keep front foot flat and torso upright.',
-        youtubeId: '2C-uNgKwPLE',
-        animationType: 'squat'
-    },
-    {
-        name: 'Leg Press Machine',
+        name: 'Sled 45° Leg Press',
         category: 'strength',
         muscleGroup: 'legs',
         equipment: 'machine',
-        benefit: 'Allows heavy quad loading without vertical spinal compression.',
+        benefit: 'Allows heavy quad and glute loading without vertical spinal compression.',
         warning: 'Do not lock out knees at top of movement.',
         youtubeId: 'IZxyjW7MPJQ',
-        animationType: 'squat'
+        gifUrl: '2Qh2J1e.gif'
+    },
+    {
+        name: 'Standing Calf Raise',
+        category: 'strength',
+        muscleGroup: 'legs',
+        equipment: 'barbell',
+        benefit: 'Isolates gastrocnemius for lower leg hypertrophy and ankle stability.',
+        warning: 'Pause at peak contraction without bouncing.',
+        youtubeId: '8ozhUIZ',
+        gifUrl: '8ozhUIZ.gif'
     },
 
     // ARMS & CORE
@@ -146,88 +156,88 @@ export const initialExercises = [
         benefit: 'Isolates long and short heads of bicep brachii.',
         warning: 'Keep elbows tucked into sides; do not swing hips for momentum.',
         youtubeId: 'kwG2ipFRgfo',
-        animationType: 'bicep_curl'
+        gifUrl: '4dUn2iv.gif'
     },
     {
-        name: 'Tricep Rope Pushdown',
+        name: 'Dumbbell Concentration Curl',
         category: 'strength',
         muscleGroup: 'full_body',
-        equipment: 'machine',
-        benefit: 'Focuses lateral and medial tricep heads.',
-        warning: 'Isolate movement to elbow joint; do not lean shoulders forward over rope.',
+        equipment: 'dumbbell',
+        benefit: 'Strict bicep isolation eliminating body momentum.',
+        warning: 'Keep shoulders back; complete full range of motion.',
+        youtubeId: 'ykJmrZ5v0Oo',
+        gifUrl: '7inpWch.gif'
+    },
+    {
+        name: 'Overhead Tricep Extension',
+        category: 'strength',
+        muscleGroup: 'full_body',
+        equipment: 'barbell',
+        benefit: 'Focuses long head of triceps for upper arm thickness.',
+        warning: 'Keep upper arms stationary next to head during movement.',
         youtubeId: 'vB5OHsJ3EME',
-        animationType: 'generic'
+        gifUrl: '5uFK1xr.gif'
     },
     {
-        name: 'Hanging Leg Raise',
+        name: 'Cable Seated Crunch',
         category: 'strength',
         muscleGroup: 'core',
-        equipment: 'bodyweight',
-        benefit: 'Targets rectus abdominis and deep hip flexors.',
-        warning: 'Avoid swinging torso; initiate pull purely from pelvic tilt.',
-        youtubeId: 'hdng3Nm1x_E',
-        animationType: 'generic'
-    },
-    {
-        name: 'Abdominal Plank',
-        category: 'strength',
-        muscleGroup: 'core',
-        equipment: 'bodyweight',
-        benefit: 'Builds anti-extension core endurance and transverse abdominis strength.',
-        warning: 'Keep hips level; do not pike upward or allow lower back to arch downwards.',
+        equipment: 'machine',
+        benefit: 'Builds core power and rectus abdominis definition under constant tension.',
+        warning: 'Flex through spine, do not pull with neck.',
         youtubeId: 'pSHjTRCQxIw',
-        animationType: 'generic'
+        gifUrl: '8xUv4J7.gif'
+    },
+    {
+        name: 'Hanging Knee Raise',
+        category: 'strength',
+        muscleGroup: 'core',
+        equipment: 'bodyweight',
+        benefit: 'Targets lower abdominals and hip flexors.',
+        warning: 'Avoid swinging torso; initiate movement from core.',
+        youtubeId: '8K0w2yA',
+        gifUrl: '8K0w2yA.gif'
     },
 
-    // CARDIO
+    // CALISTHENICS & CARDIO ADDITIONAL
     {
-        name: 'Treadmill Interval Sprint',
-        category: 'cardio',
-        muscleGroup: 'cardio',
-        equipment: 'machine',
-        benefit: 'Boosts VO2 max, caloric expenditure, and anaerobic capacity.',
-        warning: 'Ensure treadmill safety clip is attached; do not jump onto moving belt.',
-        youtubeId: '8030w8x5LwY',
-        animationType: 'jumping_jacks'
+        name: 'Bodyweight Pull-Up',
+        category: 'strength',
+        muscleGroup: 'back',
+        equipment: 'pull-up bar',
+        benefit: 'Gold-standard bodyweight upper body pulling exercise for lats and biceps.',
+        warning: 'Avoid swinging legs or using momentum. Control the negative drop.',
+        youtubeId: 'eGo4IYlbE5g',
+        gifUrl: '7F1DVzn.gif'
     },
     {
-        name: 'Rowing Machine Intervals',
-        category: 'cardio',
-        muscleGroup: 'cardio',
-        equipment: 'machine',
-        benefit: 'Full-body cardiovascular conditioning engaging 85% of muscles.',
-        warning: 'Drive with legs first before pulling with upper body to protect spine.',
-        youtubeId: 'H0r_ZXMzH-0',
-        animationType: 'generic'
+        name: 'Parallel Bar Dips',
+        category: 'strength',
+        muscleGroup: 'chest',
+        equipment: 'bodyweight',
+        benefit: 'High-intensity compound push for lower pec and triceps hypertrophy.',
+        warning: 'Do not dip below 90 degrees shoulder angle if shoulder instability exists.',
+        youtubeId: '2z8JmcrW-As',
+        gifUrl: '05Cf2v8.gif'
     },
     {
-        name: 'Jumping Jacks',
+        name: 'Single Leg Pistol Squat',
+        category: 'strength',
+        muscleGroup: 'legs',
+        equipment: 'bodyweight',
+        benefit: 'Unilateral quad power, glute engagement, and high-level balance.',
+        warning: 'Keep lead leg extended off ground. Do not allow knee to cave inwards.',
+        youtubeId: 'qDcniqddTeE',
+        gifUrl: '5bpPTHv.gif'
+    },
+    {
+        name: 'High Intensity Sprint Interval',
         category: 'cardio',
         muscleGroup: 'cardio',
         equipment: 'bodyweight',
-        benefit: 'Warm-up cardio exercise raising heart rate and hip mobility.',
-        warning: 'Land softly on balls of feet to absorb ankle and knee impact.',
-        youtubeId: 'c4DAnQ6DtF8',
-        animationType: 'jumping_jacks'
-    },
-    {
-        name: 'Stationary Cycling Zone 2',
-        category: 'cardio',
-        muscleGroup: 'cardio',
-        equipment: 'machine',
-        benefit: 'Builds aerobic baseline and mitochondrial density with zero joint impact.',
-        warning: 'Adjust seat height so knee is at 15-degree flex at bottom pedal stroke.',
-        youtubeId: 'r3s_r8tG9d0',
-        animationType: 'generic'
-    },
-    {
-        name: 'Battle Rope Slams',
-        category: 'cardio',
-        muscleGroup: 'cardio',
-        equipment: 'none',
-        benefit: 'High-intensity upper body cardiovascular and shoulder endurance work.',
-        warning: 'Maintain athletic squat stance; do not round back during slams.',
-        youtubeId: 'q5Z2L0n85-E',
-        animationType: 'generic'
+        benefit: 'Maximal heart rate spike for Zone 5 cardiovascular conditioning and fat burn.',
+        warning: 'Perform dynamic warm-up prior to high-speed sprinting.',
+        youtubeId: '8oZpL675u9s',
+        gifUrl: '8ozhUIZ.gif'
     }
 ];

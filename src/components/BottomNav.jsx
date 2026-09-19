@@ -1,17 +1,20 @@
 import React from 'react';
-import { LayoutDashboard, Dumbbell, TrendingUp, Crown, UserCheck } from 'lucide-react';
+import { LayoutDashboard, Apple, Dumbbell, Pill, TrendingUp, User, Crown } from 'lucide-react';
 
 export default function BottomNav({ activeTab, setActiveTab, isPremium }) {
     const navItems = [
-        { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+        { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
+        { id: 'diet', label: 'Diet', icon: Apple },
         { id: 'workout', label: 'Workout', icon: Dumbbell },
-        { id: 'progress', label: 'Progress', icon: TrendingUp },
-        { id: 'pricing', label: isPremium ? 'Pro Active' : 'Upgrade', icon: Crown, isCrown: true },
+        { id: 'meds', label: 'Meds', icon: Pill },
+        { id: 'progress', label: 'Analytics', icon: TrendingUp },
+        { id: 'profile', label: 'Profile', icon: User },
+        { id: 'pricing', label: isPremium ? 'Pro' : 'Pricing', icon: Crown },
     ];
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md border-t border-surface-border md:hidden">
-            <div className="flex items-center justify-around h-16 px-2 max-w-lg mx-auto">
+        <nav aria-label="Mobile Navigation" className="fixed bottom-0 left-0 right-0 z-40 bg-bg border-t border-border md:hidden">
+            <div className="flex items-center justify-around h-14 px-1 max-w-md mx-auto">
                 {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeTab === item.id;
@@ -19,16 +22,12 @@ export default function BottomNav({ activeTab, setActiveTab, isPremium }) {
                         <button
                             key={item.id}
                             onClick={() => setActiveTab(item.id)}
-                            className={`flex flex-col items-center justify-center w-full h-full min-h-[44px] transition-colors ${isActive ? 'text-accent font-semibold' : 'text-text-muted hover:text-text-main'
-                                }`}
+                            aria-label={item.label}
+                            aria-current={isActive ? 'page' : undefined}
+                            className={`flex flex-col items-center justify-center w-full h-full min-h-[44px] transition-colors ${isActive ? 'text-accent' : 'text-text-muted hover:text-text-secondary'}`}
                         >
-                            <div className="relative">
-                                <Icon className={`w-5 h-5 ${isActive ? 'stroke-[2.5]' : 'stroke-2'}`} />
-                                {item.isCrown && isPremium && (
-                                    <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                )}
-                            </div>
-                            <span className="text-[11px] mt-1 tracking-tight">{item.label}</span>
+                            <Icon className="w-4 h-4" strokeWidth={isActive ? 2 : 1.5} />
+                            <span className="text-[10px] mt-1 font-medium">{item.label}</span>
                         </button>
                     );
                 })}

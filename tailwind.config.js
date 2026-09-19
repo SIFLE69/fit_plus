@@ -6,36 +6,75 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                mono: ['JetBrains Mono', 'Fira Code', 'Roboto Mono', 'monospace'],
+            },
             colors: {
-                bg: '#0E0F11',
+                bg: {
+                    DEFAULT: 'var(--bg)',
+                    secondary: 'var(--bg-secondary)',
+                    tertiary: 'var(--bg-tertiary)',
+                },
                 surface: {
-                    DEFAULT: '#1A1C1F',
-                    hover: '#25282D',
-                    border: '#2E3238',
-                    light: '#24272C'
+                    DEFAULT: 'var(--surface)',
+                    '2': 'var(--surface-2)',
+                    '3': 'var(--surface-3)',
+                    hover: 'var(--surface-hover)',
+                    elevated: 'var(--surface-elevated)',
+                    border: 'var(--border)',
+                },
+                border: {
+                    DEFAULT: 'var(--border)',
+                    '2': 'var(--border-2)',
                 },
                 text: {
-                    main: '#F2F1ED',
-                    muted: '#8B8D92',
+                    main: 'var(--text-main)',
+                    secondary: 'var(--text-secondary)',
+                    muted: 'var(--text-muted)',
+                    disabled: 'var(--text-disabled)',
                 },
                 accent: {
-                    DEFAULT: '#D6FF3F',
-                    hover: '#BCE82B',
-                    dark: '#1D2405',
-                },
-                warning: {
-                    DEFAULT: '#FF6B4A',
-                    bg: '#2A1814',
-                    border: '#4A2118',
+                    DEFAULT: 'var(--accent)',
+                    hover: 'var(--accent-hover)',
+                    light: 'var(--accent-light)',
                 },
                 success: {
-                    DEFAULT: '#4ADE80',
-                    bg: '#14291D',
-                }
+                    DEFAULT: 'var(--success)',
+                    bg: 'var(--success-bg)',
+                    border: 'var(--success-border)',
+                },
+                warning: {
+                    DEFAULT: 'var(--warning)',
+                    bg: 'var(--warning-bg)',
+                },
+                danger: {
+                    DEFAULT: 'var(--danger)',
+                    bg: 'var(--danger-bg)',
+                    border: 'var(--danger-border)',
+                },
+                info: {
+                    DEFAULT: 'var(--info)',
+                    bg: 'var(--info-bg)',
+                    border: 'var(--info-border)',
+                },
             },
-            fontFamily: {
-                display: ['Space Grotesk', 'sans-serif'],
-                sans: ['Inter', 'sans-serif'],
+            borderRadius: {
+                sm: '4px',
+                DEFAULT: '6px',
+                md: '8px',
+                lg: '10px',
+                xl: '12px',
+                '2xl': '16px',
+            },
+            boxShadow: {
+                card: 'none',
+                subtle: '0 1px 2px rgba(0,0,0,0.04)',
+                modal: '0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)',
+            },
+            spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
             },
         },
     },

@@ -1,130 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* ── Notion-Inspired Design System ── */
   :root {
-    --bg: #0E0F11;
-    --surface: #1A1C1F;
-    --text: #F2F1ED;
-    --text-muted: #8B8D92;
-    --accent: #D6FF3F;
-    --warning: #FF6B4A;
-    --success: #4ADE80;
+    /* Backgrounds */
+    --bg:              #FFFFFF;
+    --bg-secondary:    #F7F6F3;
+    --bg-tertiary:     #EFEEEA;
+
+    /* Surfaces */
+    --surface:         #FFFFFF;
+    --surface-2:       #F7F6F3;
+    --surface-3:       #EFEEEA;
+    --surface-hover:   #F0EFEA;
+    --surface-elevated:#FFFFFF;
+
+    /* Borders — no shadows, just clean lines */
+    --border:          #E9E9E7;
+    --border-2:        #D4D4CF;
+    --surface-border:  #E9E9E7;
+
+    /* Text — warm-toned near-blacks like Notion */
+    --text-main:       #37352F;
+    --text-secondary:  #6B6B6A;
+    --text-muted:      #9B9A97;
+    --text-disabled:   #C7C6C3;
+
+    /* Single accent: a clean indigo-blue — used sparingly */
+    --accent:          #2383E2;
+    --accent-hover:    #1E6FBF;
+    --accent-muted:    rgba(35, 131, 226, 0.10);
+    --accent-light:    #EBF5FF;
+
+    /* Positive / green — used for success states & one stat */
+    --success:         #0F7B6C;
+    --success-bg:      #EDFAF6;
+    --success-border:  #C2E8E0;
+
+    /* Warnings */
+    --warning:         #DFAB01;
+    --warning-bg:      #FFF8E6;
+    --warning-border:  transparent;
+
+    /* Danger */
+    --danger:          #E03E3E;
+    --danger-bg:       #FDEAEA;
+    --danger-border:   #F5C2C2;
+
+    /* Info — Cyan / Sky Blue (distinct from --accent royal blue) */
+    --info:            #0284C7;
+    --info-bg:         #E0F2FE;
+    --info-border:     #BAE6FD;
+
+    /* Shadows — minimal, only on floating elements */
+    --card-shadow:     none;
+    --modal-shadow:    0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
   }
 
-  body {
+  html, body, #root {
     background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
     min-height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-display {
-    font-family: 'Space Grotesk', sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
     letter-spacing: -0.02em;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  /* Remove all outlines */
+  :focus, :focus-visible, :focus-within {
+    outline: none !important;
+    box-shadow: none !important;
   }
-  ::-webkit-scrollbar-track {
-    background: #0E0F11;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #2E3238;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #8B8D92;
-  }
+
+  /* Notion-style scrollbar — minimal */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 }
 
-/* Tabular numbers for clean alignment */
+/* ── Tabular numbers utility ── */
 .num-tabular {
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
 
-/* Micro-animations */
-@keyframes checkmarkScale {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); opacity: 1; }
+/* ── Notion-style hover highlight (text selection) ── */
+::selection {
+  background: rgba(35, 131, 226, 0.18);
+  color: var(--text-main);
 }
 
-.animate-checkmark {
-  animation: checkmarkScale 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+/* ── Subtle card — border only, no shadow ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
-/* Exercise CSS Keyframe Movement Animations */
-
-/* 1. Squat Animation */
-@keyframes squatMotion {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(22px); }
+.card-2 {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
-@keyframes squatBarbell {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(22px); }
+/* ── Fade in animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.anim-squat-body {
-  animation: squatMotion 2.4s ease-in-out infinite;
+.animate-fadeIn {
+  animation: fadeUp 180ms ease forwards;
 }
 
-/* 2. Pushup Animation */
-@keyframes pushupMotion {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(18px) rotate(-3deg); }
+/* ── Notion-style inline code ── */
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  background: var(--surface-3);
+  border-radius: 3px;
+  padding: 1px 4px;
+  color: #E03E3E;
 }
 
-.anim-pushup-body {
-  animation: pushupMotion 2s ease-in-out infinite;
-}
-
-/* 3. Deadlift Animation */
-@keyframes deadliftTorso {
-  0%, 100% { transform: rotate(0deg); transform-origin: 40px 65px; }
-  50% { transform: rotate(40deg); transform-origin: 40px 65px; }
-}
-
-.anim-deadlift-torso {
-  animation: deadliftTorso 2.6s ease-in-out infinite;
-}
-
-/* 4. Bicep Curl Animation */
-@keyframes bicepArm {
-  0%, 100% { transform: rotate(0deg); transform-origin: 35px 35px; }
-  50% { transform: rotate(-85deg); transform-origin: 35px 35px; }
-}
-
-.anim-bicep-arm {
-  animation: bicepArm 1.8s ease-in-out infinite;
-}
-
-/* 5. Jumping Jacks Animation */
-@keyframes jackLimb {
-  0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(1.4); }
-}
-
-.anim-jack {
-  animation: jackLimb 1.2s ease-in-out infinite;
-}
-
-/* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
-  .anim-squat-body,
-  .anim-pushup-body,
-  .anim-deadlift-torso,
-  .anim-bicep-arm,
-  .anim-jack {
-    animation: none !important;
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

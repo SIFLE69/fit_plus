@@ -60,8 +60,8 @@ export default function PricingPage({ profile, onTogglePremium }) {
                             disabled={!isPremium}
                             onClick={() => isPremium && onTogglePremium(false)}
                             className={`w-full py-3 rounded-lg text-xs font-display font-bold min-h-[44px] transition-colors ${!isPremium
-                                    ? 'bg-bg text-text-muted border border-surface-border cursor-default'
-                                    : 'bg-surface-border text-text-main hover:bg-surface-hover'
+                                ? 'bg-bg text-text-muted border border-surface-border cursor-default'
+                                : 'bg-surface-border text-text-main hover:bg-surface-hover'
                                 }`}
                         >
                             {!isPremium ? 'Current Standard Plan' : 'Downgrade to Standard'}
@@ -94,16 +94,19 @@ export default function PricingPage({ profile, onTogglePremium }) {
                                 <Check className="w-4 h-4 text-accent" /> Everything in Basic Plan
                             </li>
                             <li className="flex items-center gap-2">
-                                <Check className="w-4 h-4 text-accent" /> <strong className="text-accent font-display">AI Coach Tip of the Day</strong>
+                                <Check className="w-4 h-4 text-accent" /> <strong className="text-accent font-display">Advanced Analytics & Telemetry Engine</strong>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Check className="w-4 h-4 text-accent" /> Advanced Muscle Condition Filters
+                                <Check className="w-4 h-4 text-accent" /> <strong className="text-accent font-display">Complete Micro & Macro Nutrient Tracking</strong>
                             </li>
                             <li className="flex items-center gap-2">
-                                <Check className="w-4 h-4 text-accent" /> Unlimited Routine Regeneration
+                                <Check className="w-4 h-4 text-accent" /> Workouts for 7 Training Styles (Calisthenics, Gym, Functional, Hybrid, etc.)
                             </li>
                             <li className="flex items-center gap-2">
-                                <Check className="w-4 h-4 text-accent" /> Premium Pro Badge & Telemetry Dashboard
+                                <Check className="w-4 h-4 text-accent" /> AI Coach Guidance Engine & Daily Insight
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <Check className="w-4 h-4 text-accent" /> Unlimited Exercise Swapping & Medical Protocols
                             </li>
                         </ul>
                     </div>
@@ -112,8 +115,8 @@ export default function PricingPage({ profile, onTogglePremium }) {
                         <button
                             onClick={() => onTogglePremium(!isPremium)}
                             className={`w-full py-3 rounded-lg text-xs font-display font-bold min-h-[44px] transition-all flex items-center justify-center gap-2 ${isPremium
-                                    ? 'bg-success/20 text-success border border-success/30 hover:bg-success/30'
-                                    : 'bg-accent text-bg hover:bg-accent-hover shadow-lg'
+                                ? 'bg-success/20 text-success border border-success/30 hover:bg-success/30'
+                                : 'bg-accent text-bg hover:bg-accent-hover shadow-lg'
                                 }`}
                         >
                             {isPremium ? (

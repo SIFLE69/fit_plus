@@ -2,8 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
 import profilesRouter from './routes/profiles.js';
 import exercisesRouter from './routes/exercises.js';
+import recipesRouter from './routes/recipes.js';
 import { runSeed } from './seed/seedAll.js';
 
 dotenv.config();
@@ -14,9 +16,14 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Serve real ExerciseDB GIF animations from archive
+app.use('/gifs', express.static(path.join(process.cwd(), 'archive', 'exercisedb_v1_sample', 'gifs_180x180')));
+app.use('/gifs_large', express.static(path.join(process.cwd(), 'archive', 'exercisedb_v1_sample', 'gifs_1080x1080')));
+
 // Routes
 app.use('/api/profiles', profilesRouter);
 app.use('/api/exercises', exercisesRouter);
+app.use('/api/recipes', recipesRouter);
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date() });

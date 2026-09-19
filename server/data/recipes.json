@@ -1,0 +1,344 @@
+[
+    {
+        "id": "rec_01",
+        "name": "Anabolic Blueberry Oats Bowl",
+        "mealType": "breakfast",
+        "prepTime": "8 mins",
+        "calories": 420,
+        "proteinG": 38,
+        "carbsG": 52,
+        "fatG": 7,
+        "fiberG": 8,
+        "glycemicIndex": "low",
+        "sodiumMg": 180,
+        "tags": [
+            "high-protein",
+            "low-gi",
+            "gluten-free-option",
+            "nut-free-option"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "suitableForDiseases": [
+            "diabetes",
+            "hypertension",
+            "high_cholesterol"
+        ],
+        "ingredients": [
+            "70g Whole Rolled Oats (GF optional)",
+            "1 Scoop Vanilla Protein Isolate",
+            "80g Fresh Blueberries",
+            "1 tbsp Chia Seeds",
+            "250ml Almond Milk or Water"
+        ],
+        "instructions": "Simmer oats in almond milk for 5 minutes. Stir in protein isolate off heat. Top with blueberries and chia seeds."
+    },
+    {
+        "id": "rec_02",
+        "name": "Avocado Egg White Power Toast",
+        "mealType": "breakfast",
+        "prepTime": "10 mins",
+        "calories": 390,
+        "proteinG": 32,
+        "carbsG": 38,
+        "fatG": 12,
+        "fiberG": 9,
+        "glycemicIndex": "low",
+        "sodiumMg": 310,
+        "tags": [
+            "high-protein",
+            "dairy-free",
+            "nut-free"
+        ],
+        "allergens": [
+            "eggs",
+            "gluten"
+        ],
+        "suitableForDiseases": [
+            "diabetes",
+            "hypertension",
+            "ibs"
+        ],
+        "ingredients": [
+            "2 Slices Whole Grain or GF Bread",
+            "150ml Liquid Egg Whites (scrambled)",
+            "1/2 Hass Avocado (mashed)",
+            "1/2 tsp Everything Bagel Seasoning",
+            "Handful Baby Spinach"
+        ],
+        "instructions": "Toast bread. Mash avocado with lemon juice. Scramble egg whites with spinach. Assemble toast and sprinkle seasoning."
+    },
+    {
+        "id": "rec_03",
+        "name": "Peanut Butter Banana Chia Pudding",
+        "mealType": "breakfast",
+        "prepTime": "5 mins",
+        "calories": 450,
+        "proteinG": 30,
+        "carbsG": 48,
+        "fatG": 16,
+        "fiberG": 11,
+        "glycemicIndex": "medium",
+        "sodiumMg": 190,
+        "tags": [
+            "high-protein",
+            "dairy-free",
+            "gluten-free"
+        ],
+        "allergens": [
+            "peanuts"
+        ],
+        "suitableForDiseases": [
+            "high_cholesterol",
+            "hypertension"
+        ],
+        "ingredients": [
+            "3 tbsp Chia Seeds",
+            "1 Scoop Chocolate Plant Protein",
+            "1 tbsp Natural Peanut Butter",
+            "1 Ripe Banana (sliced)",
+            "250ml Unsweetened Almond Milk"
+        ],
+        "instructions": "Whisk chia seeds, protein powder, and almond milk. Chill 2 hours or overnight. Top with peanut butter and banana."
+    },
+    {
+        "id": "rec_04",
+        "name": "Grilled Lemon Herb Chicken & Quinoa",
+        "mealType": "lunch",
+        "prepTime": "20 mins",
+        "calories": 520,
+        "proteinG": 48,
+        "carbsG": 54,
+        "fatG": 12,
+        "fiberG": 7,
+        "glycemicIndex": "low",
+        "sodiumMg": 340,
+        "tags": [
+            "high-protein",
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "soy-free"
+        ],
+        "allergens": [],
+        "suitableForDiseases": [
+            "diabetes",
+            "hypertension",
+            "high_cholesterol",
+            "ibs"
+        ],
+        "ingredients": [
+            "180g Chicken Breast (marinated in lemon & oregano)",
+            "150g Cooked Quinoa",
+            "1 Cup Steamed Asparagus & Zucchini",
+            "1 tbsp Extra Virgin Olive Oil"
+        ],
+        "instructions": "Grill marinated chicken for 6-7 mins per side. Serve over warm cooked quinoa with steamed green vegetables drizzled with olive oil."
+    },
+    {
+        "id": "rec_05",
+        "name": "Lean Turkey Sweet Potato Mash Bowl",
+        "mealType": "lunch",
+        "prepTime": "18 mins",
+        "calories": 490,
+        "proteinG": 44,
+        "carbsG": 50,
+        "fatG": 10,
+        "fiberG": 6,
+        "glycemicIndex": "low",
+        "sodiumMg": 290,
+        "tags": [
+            "high-protein",
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free"
+        ],
+        "allergens": [],
+        "suitableForDiseases": [
+            "diabetes",
+            "hypertension",
+            "high_cholesterol"
+        ],
+        "ingredients": [
+            "180g 93% Lean Ground Turkey",
+            "200g Steamed Sweet Potato (mashed)",
+            "1 Cup Steamed Broccoli",
+            "1/2 tsp Garlic Powder & Black Pepper"
+        ],
+        "instructions": "Brown ground turkey in pan with garlic powder. Serve alongside mashed sweet potato and broccoli."
+    },
+    {
+        "id": "rec_06",
+        "name": "Seared Wild Salmon & Brown Rice",
+        "mealType": "dinner",
+        "prepTime": "15 mins",
+        "calories": 560,
+        "proteinG": 42,
+        "carbsG": 46,
+        "fatG": 22,
+        "fiberG": 5,
+        "glycemicIndex": "low",
+        "sodiumMg": 260,
+        "tags": [
+            "high-protein",
+            "omega-3",
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "soy-free"
+        ],
+        "allergens": [],
+        "suitableForDiseases": [
+            "high_cholesterol",
+            "hypertension",
+            "diabetes"
+        ],
+        "ingredients": [
+            "170g Wild Sockeye Salmon Fillet",
+            "160g Cooked Brown Basmati Rice",
+            "1 Cup Sautéed Baby Spinach & Cherry Tomatoes",
+            "1/2 Lemon"
+        ],
+        "instructions": "Pan-sear salmon skin-side down for 4 mins, flip for 3 mins. Serve over brown rice and sautéed spinach with lemon."
+    },
+    {
+        "id": "rec_07",
+        "name": "Lean Sirloin Steak & Roasted Asparagus",
+        "mealType": "dinner",
+        "prepTime": "15 mins",
+        "calories": 530,
+        "proteinG": 50,
+        "carbsG": 32,
+        "fatG": 20,
+        "fiberG": 6,
+        "glycemicIndex": "low",
+        "sodiumMg": 310,
+        "tags": [
+            "high-protein",
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "soy-free"
+        ],
+        "allergens": [],
+        "suitableForDiseases": [
+            "diabetes",
+            "ibs"
+        ],
+        "ingredients": [
+            "170g Top Sirloin Steak (fat trimmed)",
+            "200g Roasted Red Potatoes",
+            "10-12 Roasted Asparagus Spears",
+            "1 tsp Rosemary & Olive Oil"
+        ],
+        "instructions": "Grill or cast-iron sear sirloin to medium-rare. Roast potatoes and asparagus with olive oil and rosemary at 200°C for 20 mins."
+    },
+    {
+        "id": "rec_08",
+        "name": "Tofu Vegetable Stir-Fry with Coconut Aminos",
+        "mealType": "dinner",
+        "prepTime": "15 mins",
+        "calories": 410,
+        "proteinG": 28,
+        "carbsG": 45,
+        "fatG": 14,
+        "fiberG": 8,
+        "glycemicIndex": "low",
+        "sodiumMg": 220,
+        "tags": [
+            "vegan",
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "low-sodium"
+        ],
+        "allergens": [
+            "soy"
+        ],
+        "suitableForDiseases": [
+            "high_cholesterol",
+            "hypertension",
+            "diabetes"
+        ],
+        "ingredients": [
+            "200g Extra Firm Tofu (cubed)",
+            "150g Cooked Jasmine Rice",
+            "1.5 Cups Bell Peppers, Snap Peas, & Broccoli",
+            "2 tbsp Coconut Aminos (Soy sauce alternative)"
+        ],
+        "instructions": "Pan-fry cubed tofu until golden. Add mixed vegetables and coconut aminos. Toss 3 mins and serve over warm jasmine rice."
+    },
+    {
+        "id": "rec_09",
+        "name": "Greek Yogurt Berry Protein Bowl",
+        "mealType": "snack",
+        "prepTime": "3 mins",
+        "calories": 280,
+        "proteinG": 30,
+        "carbsG": 28,
+        "fatG": 3,
+        "fiberG": 5,
+        "glycemicIndex": "low",
+        "sodiumMg": 110,
+        "tags": [
+            "high-protein",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "soy-free"
+        ],
+        "allergens": [
+            "dairy"
+        ],
+        "suitableForDiseases": [
+            "diabetes",
+            "hypertension",
+            "high_cholesterol"
+        ],
+        "ingredients": [
+            "200g Plain Non-Fat Greek Yogurt",
+            "100g Mixed Strawberries & Raspberries",
+            "1 Scoop Vanilla Whey Protein Isolate",
+            "1 tsp Honey or Stevia"
+        ],
+        "instructions": "Mix protein powder smoothly into Greek yogurt. Top with fresh berries and drizzled honey."
+    },
+    {
+        "id": "rec_10",
+        "name": "Anabolic Rice Cakes with Sunflower Butter",
+        "mealType": "snack",
+        "prepTime": "2 mins",
+        "calories": 260,
+        "proteinG": 18,
+        "carbsG": 30,
+        "fatG": 8,
+        "fiberG": 4,
+        "glycemicIndex": "medium",
+        "sodiumMg": 90,
+        "tags": [
+            "dairy-free",
+            "gluten-free",
+            "nut-free",
+            "egg-free",
+            "vegan"
+        ],
+        "allergens": [],
+        "suitableForDiseases": [
+            "hypertension",
+            "high_cholesterol"
+        ],
+        "ingredients": [
+            "3 Plain Brown Rice Cakes",
+            "1.5 tbsp Sunflower Seed Butter",
+            "1/2 Sliced Banana",
+            "Dash of Cinnamon"
+        ],
+        "instructions": "Spread sunflower seed butter evenly across rice cakes. Top with banana slices and cinnamon."
+    }
+]

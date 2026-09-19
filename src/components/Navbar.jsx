@@ -1,75 +1,88 @@
 import React from 'react';
-import { Dumbbell, Crown, RefreshCw, UserCheck } from 'lucide-react';
+import { Dumbbell, Crown, RefreshCw, Apple, Pill, TrendingUp, LayoutDashboard, Terminal, Settings, User, LogOut } from 'lucide-react';
 
-export default function Navbar({ activeTab, setActiveTab, profile, onResetSession }) {
+export default function Navbar({ activeTab, setActiveTab, profile, onResetSession, onOpenSettings }) {
+    const navItems = [
+        { id: 'dashboard', label: 'Home' },
+        { id: 'diet', label: 'Nutrition' },
+        { id: 'workout', label: 'Workouts' },
+        { id: 'meds', label: 'Meds' },
+        { id: 'progress', label: 'Analytics' },
+        { id: 'profile', label: 'Profile' },
+        { id: 'pricing', label: profile?.isPremium ? '✦ Pro' : 'Upgrade' },
+    ];
+
     return (
-        <header className="sticky top-0 z-40 bg-bg/90 backdrop-blur-md border-b border-surface-border">
-            <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <header className="sticky top-0 z-40 bg-bg border-b border-border">
+            <div className="max-w-5xl mx-auto px-5 h-12 flex items-center justify-between gap-4">
+
                 {/* Brand */}
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded bg-accent flex items-center justify-center text-bg font-display font-bold text-xl">
-                        F
+                <div
+                    className="flex items-center gap-2 cursor-pointer shrink-0"
+                    onClick={() => setActiveTab('dashboard')}
+                >
+                    <div className="w-6 h-6 rounded bg-accent flex items-center justify-center">
+                        <Terminal className="w-3.5 h-3.5 text-white" strokeWidth={2} />
                     </div>
-                    <div>
-                        <span className="font-display font-bold text-lg text-text-main tracking-tight">FITPLAN</span>
-                        <span className="hidden sm:inline-block ml-2 text-xs text-text-muted px-2 py-0.5 bg-surface rounded border border-surface-border">
-                            ATHLETIC OS v1.0
-                        </span>
-                    </div>
+                    <span className="font-semibold text-sm text-text-main tracking-tight">
+                        FitCode
+                    </span>
                 </div>
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-1 bg-surface p-1 rounded-lg border border-surface-border">
-                    <button
-                        onClick={() => setActiveTab('dashboard')}
-                        className={`px-4 py-2 text-xs font-semibold rounded transition-colors ${activeTab === 'dashboard' ? 'bg-accent text-bg' : 'text-text-muted hover:text-text-main'
-                            }`}
-                    >
-                        Dashboard
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('workout')}
-                        className={`px-4 py-2 text-xs font-semibold rounded transition-colors ${activeTab === 'workout' ? 'bg-accent text-bg' : 'text-text-muted hover:text-text-main'
-                            }`}
-                    >
-                        Workout Plan
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('progress')}
-                        className={`px-4 py-2 text-xs font-semibold rounded transition-colors ${activeTab === 'progress' ? 'bg-accent text-bg' : 'text-text-muted hover:text-text-main'
-                            }`}
-                    >
-                        Progress & Badges
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('pricing')}
-                        className={`px-4 py-2 text-xs font-semibold rounded transition-colors flex items-center gap-1.5 ${activeTab === 'pricing' ? 'bg-accent text-bg' : 'text-text-muted hover:text-text-main'
-                            }`}
-                    >
-                        <Crown className="w-3.5 h-3.5" />
-                        {profile?.isPremium ? 'Pro Member' : 'Pricing'}
-                    </button>
+                {/* Desktop nav — Notion-style plain text links */}
+                <nav className="hidden md:flex items-center gap-0.5 flex-1">
+                    {navItems.map((item) => {
+                        const isActive = activeTab === item.id;
+                        return (
+                            <button
+                                key={item.id}
+                                onClick={() => setActiveTab(item.id)}
+                                aria-current={isActive ? 'page' : undefined}
+                                className={`px-3 py-1.5 text-sm rounded transition-colors duration-100 ${isActive
+                                    ? 'bg-surface-hover text-text-main font-medium'
+                                    : 'text-text-muted hover:text-text-main hover:bg-surface-hover'
+                                    }`}
+                            >
+                                {item.label}
+                            </button>
+                        );
+                    })}
                 </nav>
 
-                {/* User Profile Quick Action & Reset */}
-                <div className="flex items-center gap-3">
+                {/* Right: User + actions */}
+                <div className="flex items-center gap-1 shrink-0">
                     {profile && (
-                        <div className="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-lg border border-surface-border text-xs">
-                            <UserCheck className="w-4 h-4 text-accent" />
-                            <span className="font-medium text-text-main">{profile.name}</span>
+                        <button
+                            onClick={() => setActiveTab('profile')}
+                            className="flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-surface-hover transition-colors text-sm text-text-secondary"
+                        >
+                            <div className="w-5 h-5 rounded-full bg-accent text-white font-semibold text-[10px] flex items-center justify-center shrink-0">
+                                {profile.name ? profile.name.charAt(0).toUpperCase() : 'A'}
+                            </div>
+                            <span className="font-medium text-text-main max-w-[100px] truncate text-xs">
+                                {profile.name}
+                            </span>
                             {profile.isPremium && (
-                                <span className="bg-accent/15 text-accent text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">
-                                    PRO
-                                </span>
+                                <span className="text-[10px] font-bold text-accent bg-accent-light px-1.5 py-0.5 rounded">PRO</span>
                             )}
-                        </div>
+                        </button>
                     )}
+
+                    <button
+                        onClick={onOpenSettings}
+                        aria-label="Settings"
+                        className="p-1.5 text-text-muted hover:text-text-main hover:bg-surface-hover rounded transition-colors"
+                    >
+                        <Settings className="w-4 h-4" strokeWidth={1.5} />
+                    </button>
+
                     <button
                         onClick={onResetSession}
-                        title="Reset Session / New Onboarding"
-                        className="p-2 text-text-muted hover:text-warning hover:bg-warning/10 rounded-lg transition-colors border border-transparent hover:border-warning/30"
+                        aria-label="Sign out"
+                        title="Sign out"
+                        className="p-1.5 text-text-muted hover:text-danger hover:bg-danger-bg rounded transition-colors"
                     >
-                        <RefreshCw className="w-4 h-4" />
+                        <LogOut className="w-4 h-4" strokeWidth={1.5} />
                     </button>
                 </div>
             </div>

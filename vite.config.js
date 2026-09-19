@@ -10,6 +10,14 @@ export default defineConfig({
         target: 'http://localhost:5000',
         changeOrigin: true,
       },
+      '/gifs': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+      '/gifs_large': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
     },
   },
 });

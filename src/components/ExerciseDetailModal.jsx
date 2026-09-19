@@ -5,7 +5,7 @@ import ExerciseAnimation from './ExerciseAnimations';
 export default function ExerciseDetailModal({ exercise, onClose }) {
     if (!exercise) return null;
 
-    const { name, category, muscleGroup, equipment, benefit, warning, youtubeId, animationType } = exercise;
+    const { name, category, muscleGroup, equipment, benefit, warning, youtubeId, animationType, gifUrl } = exercise;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg/80 backdrop-blur-sm animate-fadeIn">
@@ -28,20 +28,18 @@ export default function ExerciseDetailModal({ exercise, onClose }) {
 
                 {/* Modal Body */}
                 <div className="p-5 overflow-y-auto space-y-5">
-                    {/* 1. CSS Keyframe Motion Loop */}
-                    <div>
-                        <div className="text-[11px] text-text-muted font-display uppercase mb-1 flex items-center gap-1">
-                            <Dumbbell className="w-3.5 h-3.5 text-accent" /> Technique Movement Demo
+                    {/* Exercise Title */}
+                    <div className="bg-bg border border-surface-border rounded-xl p-4 flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/15 text-accent flex items-center justify-center shrink-0">
+                            <Dumbbell className="w-5 h-5" />
                         </div>
-                        <ExerciseAnimation type={animationType || 'generic'} />
+                        <div>
+                            <h2 className="text-xl font-display font-bold text-text-main">{name}</h2>
+                            <div className="text-xs text-text-muted capitalize">{category} • {muscleGroup} ({equipment})</div>
+                        </div>
                     </div>
 
-                    {/* 2. Exercise Title */}
-                    <div>
-                        <h2 className="text-2xl font-display font-bold text-text-main">{name}</h2>
-                    </div>
-
-                    {/* 3. Benefit (1-2 lines) */}
+                    {/* 3. Benefit */}
                     <div className="bg-bg border border-surface-border rounded-lg p-3.5">
                         <div className="text-xs font-bold text-accent font-display uppercase mb-1 flex items-center gap-1">
                             <ShieldCheck className="w-4 h-4" /> Primary Benefit
@@ -49,7 +47,7 @@ export default function ExerciseDetailModal({ exercise, onClose }) {
                         <p className="text-sm text-text-main leading-relaxed">{benefit}</p>
                     </div>
 
-                    {/* 4. Warning (Visually distinct with --warning token) */}
+                    {/* 4. Warning */}
                     <div className="bg-warning-bg border border-warning-border rounded-lg p-3.5">
                         <div className="text-xs font-bold text-warning font-display uppercase mb-1 flex items-center gap-1.5">
                             <AlertTriangle className="w-4 h-4 text-warning" /> Safety Caution & Form Warning
