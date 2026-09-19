@@ -27,7 +27,7 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
     const [step, setStep] = useState(1);
 
     // Dynamic Google Client ID state
-    const envClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || localStorage.getItem('fitcode_google_client_id') || '36406944807-schqkc103g5rstua9rm370c7dto678r5.apps.googleusercontent.com';
+    const envClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || localStorage.getItem('fitcode_google_client_id') || '36406944807-hoh6on76baiegst091mjcfsm0elq3i6q.apps.googleusercontent.com';
     const [googleClientId] = useState(envClientId);
     const [isGsiLoaded, setIsGsiLoaded] = useState(false);
 
