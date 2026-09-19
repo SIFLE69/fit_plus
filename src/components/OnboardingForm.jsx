@@ -84,6 +84,8 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
     useEffect(() => {
         if (!isGsiLoaded || !googleClientId || !window.google?.accounts?.id) return;
 
+        console.log('[FitPlus] Active Google Client ID:', googleClientId);
+
         try {
             window.google.accounts.id.initialize({
                 client_id: googleClientId,
