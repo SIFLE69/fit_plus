@@ -27,9 +27,8 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
     const [step, setStep] = useState(1);
 
     // Dynamic Google Client ID state
-    const envClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || localStorage.getItem('fitcode_google_client_id') || '';
-    const [googleClientId, setGoogleClientId] = useState(envClientId);
-    const [showClientIdInput, setShowClientIdInput] = useState(!envClientId);
+    const envClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || localStorage.getItem('fitcode_google_client_id') || '36406944807-schqkc103g5rstua9rm370c7dto678r5.apps.googleusercontent.com';
+    const [googleClientId] = useState(envClientId);
     const [isGsiLoaded, setIsGsiLoaded] = useState(false);
 
     const googleBtnRefLogin = useRef(null);
@@ -124,28 +123,14 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
         }
     }, [isGsiLoaded, googleClientId, isLoginMode, step, onGoogleAuth]);
 
-    const handleSaveClientId = (e) => {
-        e.preventDefault();
-        const trimmed = googleClientId.trim();
-        if (trimmed) {
-            localStorage.setItem('fitcode_google_client_id', trimmed);
-            setGoogleClientId(trimmed);
-            setShowClientIdInput(false);
-        }
-    };
-
     const handlePromptGoogleAuth = () => {
         setLoginError('');
         setRegError('');
-        if (!googleClientId) {
-            setShowClientIdInput(true);
-            return;
-        }
 
         if (window.google?.accounts?.id) {
             window.google.accounts.id.prompt();
         } else {
-            const err = 'Google Identity Services SDK is loading... Please wait a second and try again.';
+            const err = 'Google Sign-In is initializing... Please try again in a moment.';
             setLoginError(err);
             setRegError(err);
         }
@@ -250,79 +235,18 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
                         </div>
                     )}
 
-                    {/* Google OAuth Configuration & Render Container */}
+                    {/* Google OAuth Render Container */}
                     <div className="mb-4">
-                        {googleClientId ? (
-                            <div>
-                                <div ref={googleBtnRefLogin} className="w-full min-h-[40px] flex justify-center mb-2">
-                                    <button
-                                        type="button"
-                                        onClick={handlePromptGoogleAuth}
-                                        className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-hover text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
-                                    >
-                                        <GoogleIcon />
-                                        <span>Continue with Google</span>
-                                    </button>
-                                </div>
-                                <div className="flex items-center justify-between text-[10px] text-text-muted px-1">
-                                    <span className="flex items-center gap-1 font-mono text-success">
-                                        <Shield className="w-3 h-3" /> Cryptographic Token Verified
-                                    </span>
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowClientIdInput(true)}
-                                        className="hover:underline flex items-center gap-1 text-text-muted"
-                                    >
-                                        <Settings className="w-3 h-3" /> Config ID
-                                    </button>
-                                </div>
-                            </div>
-                        ) : (
+                        <div ref={googleBtnRefLogin} className="w-full min-h-[40px] flex justify-center">
                             <button
                                 type="button"
-                                onClick={() => setShowClientIdInput(true)}
-                                className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-hover text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
+                                onClick={handlePromptGoogleAuth}
+                                className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-border text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
                             >
                                 <GoogleIcon />
-                                <span>Setup Official Google OAuth Client</span>
+                                <span>Continue with Google</span>
                             </button>
-                        )}
-
-                        {showClientIdInput && (
-                            <form onSubmit={handleSaveClientId} className="mt-3 p-3 bg-bg border border-surface-border rounded-lg space-y-2 text-xs">
-                                <div className="flex items-center justify-between">
-                                    <label className="font-semibold text-text-main flex items-center gap-1.5">
-                                        <Key className="w-3.5 h-3.5 text-accent" /> Google Cloud Client ID
-                                    </label>
-                                    {googleClientId && (
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowClientIdInput(false)}
-                                            className="text-[10px] text-text-muted hover:underline"
-                                        >
-                                            Hide
-                                        </button>
-                                    )}
-                                </div>
-                                <input
-                                    type="text"
-                                    required
-                                    placeholder="123456789-abc.apps.googleusercontent.com"
-                                    value={googleClientId}
-                                    onChange={(e) => setGoogleClientId(e.target.value)}
-                                    className="w-full bg-surface border border-surface-hover rounded px-2.5 py-1.5 text-text-main font-mono text-[11px] focus:outline-none focus:border-accent"
-                                />
-                                <p className="text-[10px] text-text-muted">
-                                    Create in <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="text-accent hover:underline">Google Cloud Console</a> under Credentials &gt; OAuth 2.0 Client IDs.
-                                </p>
-                                <button
-                                    type="submit"
-                                    className="w-full py-1.5 rounded bg-accent text-bg hover:bg-accent-hover font-bold text-xs transition-colors"
-                                >
-                                    Save & Enable Live Google OAuth
-                                </button>
-                            </form>
-                        )}
+                        </div>
                     </div>
 
                     <div className="flex items-center gap-3 my-4">
@@ -427,82 +351,21 @@ export default function OnboardingForm({ onSubmitProfile, onLoginProfile, onGoog
                     {/* Google OAuth Render Container on Step 1 */}
                     {step === 1 && (
                         <div className="mb-6">
-                            {googleClientId ? (
-                                <div>
-                                    <div ref={googleBtnRefSignup} className="w-full min-h-[40px] flex justify-center mb-2">
-                                        <button
-                                            type="button"
-                                            onClick={handlePromptGoogleAuth}
-                                            className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-hover text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
-                                        >
-                                            <GoogleIcon />
-                                            <span>Sign up instantly with Google</span>
-                                        </button>
-                                    </div>
-                                    <div className="flex items-center justify-between text-[10px] text-text-muted px-1">
-                                        <span className="flex items-center gap-1 font-mono text-emerald-500">
-                                            <Shield className="w-3 h-3" /> Cryptographic Token Verification Active
-                                        </span>
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowClientIdInput(true)}
-                                            className="hover:underline flex items-center gap-1 text-text-muted"
-                                        >
-                                            <Settings className="w-3 h-3" /> Config ID
-                                        </button>
-                                    </div>
-                                </div>
-                            ) : (
+                            <div ref={googleBtnRefSignup} className="w-full min-h-[40px] flex justify-center">
                                 <button
                                     type="button"
-                                    onClick={() => setShowClientIdInput(true)}
-                                    className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-hover text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
+                                    onClick={handlePromptGoogleAuth}
+                                    className="w-full py-2.5 px-4 rounded-lg bg-surface border border-surface-border text-text-main hover:bg-surface-hover font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors shadow-sm cursor-pointer"
                                 >
                                     <GoogleIcon />
-                                    <span>Setup Official Google OAuth Client</span>
+                                    <span>Sign up with Google</span>
                                 </button>
-                            )}
-
-                            {showClientIdInput && (
-                                <form onSubmit={handleSaveClientId} className="mt-3 p-3 bg-bg border border-surface-border rounded-lg space-y-2 text-xs">
-                                    <div className="flex items-center justify-between">
-                                        <label className="font-semibold text-text-main flex items-center gap-1.5">
-                                            <Key className="w-3.5 h-3.5 text-accent" /> Google Cloud Client ID
-                                        </label>
-                                        {googleClientId && (
-                                            <button
-                                                type="button"
-                                                onClick={() => setShowClientIdInput(false)}
-                                                className="text-[10px] text-text-muted hover:underline"
-                                            >
-                                                Hide
-                                            </button>
-                                        )}
-                                    </div>
-                                    <input
-                                        type="text"
-                                        required
-                                        placeholder="123456789-abc.apps.googleusercontent.com"
-                                        value={googleClientId}
-                                        onChange={(e) => setGoogleClientId(e.target.value)}
-                                        className="w-full bg-surface border border-surface-hover rounded px-2.5 py-1.5 text-text-main font-mono text-[11px] focus:outline-none focus:border-accent"
-                                    />
-                                    <p className="text-[10px] text-text-muted">
-                                        Create in <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="text-accent hover:underline">Google Cloud Console</a> under Credentials &gt; OAuth 2.0 Client IDs.
-                                    </p>
-                                    <button
-                                        type="submit"
-                                        className="w-full py-1.5 rounded bg-accent text-bg hover:bg-accent-hover font-bold text-xs transition-colors"
-                                    >
-                                        Save & Enable Live Google OAuth
-                                    </button>
-                                </form>
-                            )}
+                            </div>
 
                             <div className="flex items-center gap-3 my-4">
-                                <div className="h-px bg-surface-hover flex-1" />
+                                <div className="h-px bg-surface-border flex-1" />
                                 <span className="text-[11px] font-semibold text-text-muted uppercase">Or Customize Profile Manually</span>
-                                <div className="h-px bg-surface-hover flex-1" />
+                                <div className="h-px bg-surface-border flex-1" />
                             </div>
                         </div>
                     )}
